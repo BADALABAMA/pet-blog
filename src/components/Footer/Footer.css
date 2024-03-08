@@ -1,0 +1,12 @@
+.links-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+.social-links {
+  margin-top: 2rem;
+}
+.footer {
+  background: rgb(109, 187, 250);
+  height: 100px;
+}

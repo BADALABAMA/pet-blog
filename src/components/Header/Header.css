@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(109, 187, 250);
+  height: 100px;
+}
+
+.nav-btn {
+  margin: 10px;
+}
+
+.input-wrapper {
+  margin-top: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
