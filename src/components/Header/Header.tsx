@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { onClick } from '../../utills/constants';
 
 import './Header.css';
@@ -13,26 +12,40 @@ const Header = ({ petNameFilter, setPetNameFilter }: any) => {
     <header className="header">
       <Logo></Logo>
       <div className="input-wrapper">
-        <input
-          type="text"
-          name="petNameFilter"
-          value={petNameFilter}
-          onChange={handleNameChange}
-          placeholder="Search by pet name..."
-        />
+        <nav className="navbar navbar-light  ">
+          <div className="container-fluid">
+            <form className="d-flex">
+              <input
+                type="text"
+                name="petNameFilter"
+                value={petNameFilter}
+                onChange={handleNameChange}
+                placeholder="Search by pet name..."
+              />
+              <button
+                className="btn btn-outline-success bg-light "
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </nav>
       </div>
 
-      <nav className="nav" onClick={onClick}>
-        <a className="nav-btn" href="/">
+      <nav className="nav navbar navbar-light" onClick={onClick}>
+        <a className="nav-btn btn btn-outline-success  bg-light" href="/">
           HOME
         </a>
-        <a className="nav-btn" href="/">
+        <a className="nav-btn btn btn-outline-success  bg-light" href="/">
           CART
         </a>
-        <a className="nav-btn" href="/">
+        <a className="nav-btn btn btn-outline-success  bg-light" href="/">
           CATALOG
         </a>
-        <button className="nav-btn">LOGIN</button>
+        <button className="nav-btn  btn btn-outline-success  bg-light">
+          LOGIN
+        </button>
       </nav>
     </header>
   );
