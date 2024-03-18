@@ -13,8 +13,9 @@ import CartPage from './pages/CartPage';
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <CartProvider>
+        <Header />
+
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="category" element={<CategoryPage />} />

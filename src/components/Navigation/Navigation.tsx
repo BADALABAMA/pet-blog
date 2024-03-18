@@ -5,15 +5,7 @@ import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 
 export const Navigation = () => {
-  const [productInCart, setProductInCart] = useState(0);
-  const { productCart, addToCart } = useContext(CartContext);
-  useEffect(() => {
-    console.log('Product cart changed:', productCart);
-    const productCount: number = productCart.length;
-    console.log('New product count:', productCount);
-    setProductInCart(productCount);
-  }, [productCart]);
-
+  const { productCart } = useContext(CartContext);
   return (
     <div className="navigation">
       <nav className="nav navbar navbar-light" onClick={onClick}>

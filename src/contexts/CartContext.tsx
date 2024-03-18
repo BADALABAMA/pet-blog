@@ -4,6 +4,7 @@ import { ICartContextType } from '../interfaces/ICartContextType';
 
 const CartContext = createContext<ICartContextType>({
   productCart: [],
+
   addToCart: () => {},
 });
 
@@ -12,6 +13,7 @@ const CartProvider = ({ children }: any) => {
 
   const addToCart = (product: IProduct) => {
     setProductCart([...productCart, product]);
+
     console.log(productCart);
   };
 

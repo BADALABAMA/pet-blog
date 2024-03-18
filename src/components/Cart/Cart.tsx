@@ -11,10 +11,9 @@ const Cart = () => {
 
   return (
     <div className="cart-wrapper">
-      {productCart.map((product) => {
+      {productCart.map((product, index) => {
         return (
-          <div>
-            {' '}
+          <div key={index}>
             <Card key={product.id} className="product-in-cart">
               <Card.Body>
                 {product.images && product.images.length > 0 && (
