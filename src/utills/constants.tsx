@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { IProduct } from '../interfaces/IProduct';
 
 export const DEFAULT_SOCIAL_MEDIA = [
   {
@@ -13,28 +14,16 @@ export const DEFAULT_SOCIAL_MEDIA = [
   },
 ];
 
-export const pets = [
-  {
-    name: 'Peach',
-    images: [
-      'images/peach01.jpg',
-      'images/peach02.jpg',
-      'images/peach03.jpg',
-      'images/peach04.jpg',
-      'images/peach05.jpg',
-    ],
-  },
-  {
-    name: 'Athena',
-    images: [
-      'images/athena01.jpg',
-      'images/athena02.jpg',
-      'images/athena03.jpg',
-      'images/athena04.jpg',
-      'images/athena05.jpg',
-    ],
-  },
-];
+export const getProducts = async () => {
+  const response = await fetch('https://dummyjson.com/products');
+  const data = await response.json();
+
+  return data;
+};
+
+export const calculatePrice = (products: IProduct[]) => {
+  return products.reduce((total, product) => total + product.price!, 0);
+};
 
 export const onClick = (e: any) => {
   e.preventDefault();

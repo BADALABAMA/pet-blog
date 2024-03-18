@@ -4,14 +4,12 @@
   grid-gap: 100px;
   margin: 1rem;
 }
-.pet-card {
-  margin: 1rem;
-  padding-top: 1rem;
+.product-card {
+  background: aliceblue;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-
-.img {
+.image {
   width: 500px;
-  height: 500px;
+  height: 400px;
   margin: 2rem;
-  border-radius: 50%;
 }

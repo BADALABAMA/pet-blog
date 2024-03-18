@@ -1,3 +1,4 @@
+import React from 'react';
 import { DEFAULT_SOCIAL_MEDIA } from '../../utills/constants';
 
 import './Footer.css';
