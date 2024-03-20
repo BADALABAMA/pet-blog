@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { ReactElement, useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
@@ -12,7 +12,7 @@ import { getProducts } from '../../utills/constants';
 import { IProduct } from '../../interfaces/IProduct';
 import './ProductCard.css';
 
-const ProductCard = () => {
+const ProductCard = (): ReactElement => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const { productCart, addToCart } = useContext(CartContext);
 

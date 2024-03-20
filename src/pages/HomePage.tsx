@@ -1,7 +1,12 @@
 import React from 'react';
+import { Forms } from '../components/Form/Form';
+import { IUser } from '../interfaces/IUser';
 
 const Home = () => {
-  return <div className="">home page</div>;
+  const onSubmitHandler = (data: IUser) => {
+    return console.log(data, ' props works');
+  };
+  return <Forms onSubmitHandler={onSubmitHandler}></Forms>;
 };
 
 export default Home;

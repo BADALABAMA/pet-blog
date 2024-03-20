@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { onClick } from '../../utills/constants';
 import './Navigation.css';
-import { useContext, useEffect, useState } from 'react';
+import { ReactElement, useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 
-export const Navigation = () => {
+export const Navigation = (): ReactElement => {
   const { productCart } = useContext(CartContext);
   return (
     <div className="navigation">

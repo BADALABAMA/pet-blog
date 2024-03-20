@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ProductCard from '../components/ProductCard/ProductCard';
+
 import { getProducts } from '../utills/constants';
 import { IProduct } from '../interfaces/IProduct';
 import { Link } from 'react-router-dom';
@@ -22,8 +22,10 @@ const CategoryPage = () => {
   console.log(productCategory);
   return (
     <div className="grid-container">
-      {productCategory.map((category) => (
-        <Link to="">{category}</Link>
+      {productCategory.map((category, index) => (
+        <Link key={index} to="">
+          {category}
+        </Link>
       ))}
     </div>
   );
