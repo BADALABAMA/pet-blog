@@ -1,0 +1,15 @@
+.password-icon-btn {
+  background: none;
+  border: 0;
+  margin: 1rem;
+  width: 10px;
+  height: 10px;
+}
+.password-icon {
+  position: relative;
+  top: -2rem;
+}
+
+.error {
+  text-wrap: wrap;
+}

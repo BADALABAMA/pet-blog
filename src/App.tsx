@@ -1,14 +1,16 @@
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CategoryPage from './pages/CategoryPage';
 import ProductPage from './pages/ProductsPage';
 import NotFoundPage from './pages/NotFoundPage';
-import HomePage from './pages/HomePage';
+import FormPage from './pages/FormPage';
 import { CartProvider } from './contexts/CartContext';
 import CartPage from './pages/CartPage';
+
+import './App.css';
 
 function App() {
   return (
@@ -17,7 +19,8 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<FormPage />} />
+          <Route path="form" element={<FormPage />} />
           <Route path="category" element={<CategoryPage />} />
 
           <Route path="products" element={<ProductPage />} />
@@ -25,8 +28,8 @@ function App() {
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        <Footer />
       </CartProvider>
-      <Footer />
     </BrowserRouter>
   );
 }
