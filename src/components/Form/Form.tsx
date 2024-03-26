@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Alert } from 'react-bootstrap';
 import { UserInputs } from '../../utills/types';
 import { IFormsProps } from '../../interfaces/IFormProps';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,7 +12,6 @@ import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 import './Form.css';
-import { Alert } from 'react-bootstrap';
 
 export const Forms: React.FC<IFormsProps> = ({ onSubmitHandler }) => {
   const {
@@ -56,9 +56,9 @@ export const Forms: React.FC<IFormsProps> = ({ onSubmitHandler }) => {
           type={isVisiblePassword ? 'text' : 'password'}
           {...register('password', {
             required: true,
-            minLength: 8,
-            pattern:
-              /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+            // minLength: 8,
+            // pattern:
+            //   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
           })}
           placeholder="Password"
         />

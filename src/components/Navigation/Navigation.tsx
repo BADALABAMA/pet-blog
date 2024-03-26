@@ -3,19 +3,40 @@ import { onClick } from '../../utills/constants';
 import './Navigation.css';
 import { ReactElement, useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../contexts/CartContext';
+import { UserContext } from '../../contexts/UserContext';
+import { IUser } from '../../interfaces/IUser';
 
 export const Navigation = (): ReactElement => {
+  const [user, setUser] = useState<IUser>();
   const { productCart } = useContext(CartContext);
+  const { currentUser } = useContext(UserContext);
+
+  useEffect(() => {
+    setUser(currentUser);
+  }, [currentUser]);
+
   return (
     <div className="navigation">
       <nav className="nav navbar navbar-light" onClick={onClick}>
-        <Link className="nav-btn btn btn-outline-success  bg-light" to="/">
-          HOME
-        </Link>
-        <Link className="nav-btn btn btn-outline-success  bg-light" to="cart">
+        {currentUser.isAuthorized ? (
+          <Link
+            className="nav-btn btn btn-outline-success  bg-light"
+            to="/profile"
+          >
+            PROFILE
+          </Link>
+        ) : (
+          <Link className="nav-btn btn btn-outline-success  bg-light" to="/">
+            HOME
+          </Link>
+        )}
+
+        <Link className="nav-btn btn btn-outline-success  bg-light" to="/form">
           CART
         </Link>
-        <p>{productCart.length}</p>
+        {productCart.length !== 0 ? (
+          <p className="cart-count">{productCart.length}</p>
+        ) : null}
         <Link
           className="nav-btn btn btn-outline-success  bg-light"
           to="/category"

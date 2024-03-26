@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Forms } from '../components/Form/Form';
 import { IUser } from '../interfaces/IUser';
 import { Spinner } from '../components/Spinner/Spinner';
+import { UserContext } from '../contexts/UserContext';
 
-const Home = () => {
+const FormPage = () => {
   const [isVisible, setIsVisible] = useState(false);
+
+  const { addUser } = useContext(UserContext);
 
   const toggleSpinner = () => {
     setIsVisible(!isVisible);
@@ -15,7 +18,7 @@ const Home = () => {
   const onSubmitHandler = (data: IUser) => {
     toggleSpinner();
 
-    return console.log(data, ' props works');
+    addUser(data);
   };
   return (
     <>
@@ -25,4 +28,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default FormPage;

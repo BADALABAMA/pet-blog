@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { IProduct } from '../interfaces/IProduct';
-import { ICartContextType } from '../interfaces/ICartContextType';
+import { ICartContextType } from '../interfaces/ContextTypes';
 
 const CartContext = createContext<ICartContextType>({
   productCart: [],
