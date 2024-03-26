@@ -31,7 +31,10 @@ export const Navigation = (): ReactElement => {
           </Link>
         )}
 
-        <Link className="nav-btn btn btn-outline-success  bg-light" to="/form">
+        <Link className="nav-btn btn btn-outline-success  bg-light" to="/login">
+          LOGIN
+        </Link>
+        <Link className="nav-btn btn btn-outline-success  bg-light" to="/cart">
           CART
         </Link>
         {productCart.length !== 0 ? (
