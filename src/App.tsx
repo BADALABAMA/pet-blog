@@ -14,27 +14,32 @@ import CartPage from './pages/CartPage';
 import './App.css';
 import ProfilePage from './pages/ProfilePage';
 import HomePage from './pages/HomePage';
+import ProductPage from './pages/ProductPage';
+import { ProductProvider } from './contexts/ProductContext';
 
 function App() {
   return (
     <BrowserRouter>
-      <CartProvider>
-        <UserProvider>
-          <Header />
+      <ProductProvider>
+        <CartProvider>
+          <UserProvider>
+            <Header />
 
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="profile" element={<ProfilePage />} />
-            <Route path="login" element={<FormPage />} />
-            <Route path="category" element={<CategoryPage />} />
-            <Route path="products" element={<ProductsPage />} />
-            <Route path="cart" element={<CartPage />} />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="profile" element={<ProfilePage />} />
+              <Route path="login" element={<FormPage />} />
+              <Route path="category" element={<CategoryPage />} />
+              <Route path="products" element={<ProductsPage />} />
+              <Route path="product/:id/:title" element={<ProductPage />} />
+              <Route path="cart" element={<CartPage />} />
 
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-          <Footer />
-        </UserProvider>
-      </CartProvider>
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+            <Footer />
+          </UserProvider>
+        </CartProvider>
+      </ProductProvider>
     </BrowserRouter>
   );
 }

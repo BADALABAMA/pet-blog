@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { PropsWithChildren, createContext, useState } from 'react';
 import { IProduct } from '../interfaces/IProduct';
 import { ICartContextType } from '../interfaces/ContextTypes';
 
@@ -8,7 +8,7 @@ const CartContext = createContext<ICartContextType>({
   addToCart: () => {},
 });
 
-const CartProvider = ({ children }: any) => {
+const CartProvider = ({ children }: PropsWithChildren) => {
   const [productCart, setProductCart] = useState<IProduct[]>([]);
 
   const addToCart = (product: IProduct) => {

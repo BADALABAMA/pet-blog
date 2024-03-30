@@ -7,6 +7,12 @@ export interface ICartContextType {
   addToCart: (product: IProduct) => void;
 }
 
+export interface IProductContextType {
+  product: IProduct;
+
+  seeDetails: (product: IProduct) => void;
+}
+
 export interface UserContextType {
   users: IUser[];
   currentUser: IUser;

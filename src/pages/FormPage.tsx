@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Forms } from '../components/Form/Form';
 import { IUser } from '../interfaces/IUser';
 import { Spinner } from '../components/Spinner/Spinner';
@@ -6,6 +7,7 @@ import { UserContext } from '../contexts/UserContext';
 
 const FormPage = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   const { addUser } = useContext(UserContext);
 
@@ -15,10 +17,12 @@ const FormPage = () => {
       setIsVisible(false);
     }, 5000);
   };
-  const onSubmitHandler = (data: IUser) => {
+  const onSubmitHandler = (user: IUser) => {
     toggleSpinner();
 
-    addUser(data);
+    addUser(user);
+
+    navigate('/');
   };
   return (
     <>

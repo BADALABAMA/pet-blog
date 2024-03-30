@@ -1,15 +1,81 @@
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 100px;
-  margin: 1rem;
 }
+
 .product-card {
-  background: aliceblue;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 50px;
+
+  width: auto;
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
 }
-.image {
-  width: 500px;
+
+.product-img {
+  width: 400px;
   height: 400px;
-  margin: 2rem;
+
+  border-radius: 50px;
+}
+
+.product-info {
+  float: left;
+  height: 420px;
+  width: 500px;
+  border-radius: 0 7px 10px 7px;
+  background-color: #ffffff7b;
+}
+
+.product-text {
+  height: 300px;
+  width: 327px;
+}
+
+.product-text h1 {
+  margin: 0 0 0 38px;
+  padding-top: 52px;
+  font-size: 34px;
+  color: #474747;
+}
+
+.product-text h1 {
+  font-family: 'Bentham', serif;
+}
+
+.product-text h2 {
+  margin: 0 0 47px 38px;
+  font-size: 13px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #d2d2d2;
+  letter-spacing: 0.2em;
+}
+
+.product-text p {
+  height: 125px;
+  margin: 0 0 0 38px;
+  font-family: 'Playfair Display', serif;
+  color: #8d8d8d;
+  line-height: 1.7em;
+  font-size: 30px;
+  font-weight: lighter;
+}
+
+.product-price {
+  font-family: 'Trocchi', serif;
+
+  font-size: 100px;
+  font-weight: lighter;
+  color: #474747;
+}
+
+.btn {
+  float: right;
+  display: inline-block;
+  height: 40px;
+  width: 176px;
+  margin: 5px 40px 10px 10px;
+  box-sizing: border-box;
 }

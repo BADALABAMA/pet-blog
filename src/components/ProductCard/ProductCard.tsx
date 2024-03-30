@@ -1,20 +1,24 @@
 import React, { ReactElement, useContext } from 'react';
+
 import { useEffect } from 'react';
 import { useState } from 'react';
-
-import { Card } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-
+import { useNavigate } from 'react-router-dom';
+import { ProductContext } from '../../contexts/ProductContext';
+import { UserContext } from '../../contexts/UserContext';
 import { CartContext } from '../../contexts/CartContext';
+import { Button } from '../Button/Button';
 
 import { getProducts } from '../../utills/constants';
 
 import { IProduct } from '../../interfaces/IProduct';
 import './ProductCard.css';
-
 const ProductCard = (): ReactElement => {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const { productCart, addToCart } = useContext(CartContext);
+
+  const { currentUser } = useContext(UserContext);
+  const { addToCart } = useContext(CartContext);
+  const { seeDetails } = useContext(ProductContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,27 +29,55 @@ const ProductCard = (): ReactElement => {
   }, []);
 
   const handleBuyClick = (product: IProduct) => {
-    addToCart(product);
-    console.log(productCart);
+    if (currentUser.isAuthorized) {
+      addToCart(product);
+    } else {
+      return;
+    }
+  };
+
+  const handleMoreDetailsClick = (product: IProduct) => {
+    seeDetails(product);
+
+    if (product.title && product.id) {
+      navigate(`/product/${product.id}/${encodeURIComponent(product.title)}`);
+    }
   };
 
   const renderProducts = (products: IProduct[]) => {
     return (
       <div className="grid-container">
         {products.map((product: IProduct) => (
-          <Card key={product.id} className="product-card">
-            <Card.Body>
-              {product.images && product.images.length > 0 && (
-                <Card.Img className="image" src={product.images[0]} alt="" />
-              )}
-              <Card.Title>{product.title}</Card.Title>
-              <Card.Subtitle>{product.description}</Card.Subtitle>
-              <Card.Text>{product.price} $</Card.Text>
-              <Button onClick={() => handleBuyClick(product)} variant="primary">
+          <div key={product.id} className="product-card">
+            {product.images && product.images.length > 0 && (
+              <img
+                className="product-img"
+                src={product.images[0]}
+                alt={product.images[1]}
+              />
+            )}
+            <div className="product-info">
+              <div className="product-text">
+                <h1 className="product-title">{product.title}</h1>
+                {product.description && (
+                  <h2 className="product-description">
+                    {product?.description.split(' ').slice(0, 10).join(' ')}
+                  </h2>
+                )}
+
+                <p className="product-price">{product.price} $</p>
+              </div>
+              <Button className="btn" onClick={() => handleBuyClick(product)}>
                 Buy
-              </Button>{' '}
-            </Card.Body>
-          </Card>
+              </Button>
+              <Button
+                className="btn"
+                onClick={() => handleMoreDetailsClick(product)}
+              >
+                More details
+              </Button>
+            </div>
+          </div>
         ))}
       </div>
     );

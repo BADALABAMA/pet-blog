@@ -1,9 +1,10 @@
 import * as React from 'react';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { UserContext } from '../../contexts/UserContext';
 
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Button } from '../Button/Button';
 import { Alert } from 'react-bootstrap';
 import { UserInputs } from '../../utills/types';
 import { IFormsProps } from '../../interfaces/IFormProps';
@@ -25,6 +26,8 @@ export const Forms: React.FC<IFormsProps> = ({ onSubmitHandler }) => {
   const onSubmit: SubmitHandler<UserInputs> = (data) => onSubmitHandler(data);
 
   const [isVisiblePassword, setIsVisiblePassword] = React.useState(false);
+
+  const { currentUser } = React.useContext(UserContext);
   const email = watch('email');
   const password = watch('password');
 
@@ -68,21 +71,22 @@ export const Forms: React.FC<IFormsProps> = ({ onSubmitHandler }) => {
             special symbols
           </Alert>
         )}
-
-        <Form.Control
-          className="mb-3 mt-3 w-100 p-3"
-          defaultValue=""
-          type={isVisiblePassword ? 'text' : 'password'}
-          {...register('confirmPassword', {
-            required: true,
-            validate: (value) => {
-              return (
-                value === getValues('password') || 'passwords  do not match'
-              );
-            },
-          })}
-          placeholder="Confirm Password"
-        />
+        {!currentUser.isAuthorized ? (
+          <Form.Control
+            className="mb-3 mt-3 w-100 p-3"
+            defaultValue=""
+            type={isVisiblePassword ? 'text' : 'password'}
+            {...register('confirmPassword', {
+              required: true,
+              validate: (value) => {
+                return (
+                  value === getValues('password') || 'passwords  do not match'
+                );
+              },
+            })}
+            placeholder="Confirm Password"
+          />
+        ) : null}
 
         {errors.confirmPassword && (
           <Alert className="error" variant="danger">
@@ -90,12 +94,7 @@ export const Forms: React.FC<IFormsProps> = ({ onSubmitHandler }) => {
           </Alert>
         )}
 
-        <Button
-          disabled={!email || !password}
-          variant="primary"
-          className="m-3 "
-          type="submit"
-        >
+        <Button disabled={!email || !password} className="m-3 " type="submit">
           Submit
         </Button>
       </Form>

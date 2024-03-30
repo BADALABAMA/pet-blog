@@ -10,3 +10,15 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.count {
+  margin-left: 15px;
+  font-size: 10px;
+  background: rgb(40, 36, 36);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  color: white;
+}

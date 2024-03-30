@@ -18,14 +18,21 @@ const CategoryPage = () => {
   const productCategory = [
     ...new Set(products.map((product: IProduct) => product.category)),
   ];
+  const productImage = [
+    ...new Set(products.map((product: IProduct) => product.images)),
+  ];
 
   console.log(productCategory);
   return (
-    <div className="grid-container">
+    <div className="grid-container category-page">
       {productCategory.map((category, index) => (
-        <Link key={index} to="">
-          {category}
-        </Link>
+        <div>
+          {' '}
+          <Link key={index} to="">
+            {category}
+          </Link>
+          <img src="" alt="" />
+        </div>
       ))}
     </div>
   );

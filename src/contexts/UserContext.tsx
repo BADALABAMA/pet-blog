@@ -1,12 +1,18 @@
 import React, { createContext, useEffect, useState } from 'react';
-
+import { v4 as uuidv4 } from 'uuid';
 import { IUser } from '../interfaces/IUser';
 import { UserContextType } from '../interfaces/ContextTypes';
-import { json } from 'body-parser';
+
+const uuid = uuidv4();
 
 const UserContext = createContext<UserContextType>({
   users: [],
-  currentUser: { email: '', password: '', isAuthorized: false },
+  currentUser: {
+    id: uuid,
+    email: '',
+    password: '',
+    isAuthorized: false,
+  },
   addUser: () => {},
 });
 
@@ -50,10 +56,11 @@ const UserProvider = ({ children }: any) => {
       return;
     }
   };
-  const addUser = (u: IUser) => {
-    defineCurrentUser(u);
+  const addUser = (user: IUser) => {
+    user.id = uuid;
+    defineCurrentUser(user);
 
-    setUsers([...users, u]);
+    setUsers([...users, user]);
   };
 
   return (

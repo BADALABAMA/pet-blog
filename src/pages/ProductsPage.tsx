@@ -1,13 +1,10 @@
 import React from 'react';
 
 import ProductCard from '../components/ProductCard/ProductCard';
+import { ProductProvider } from '../contexts/ProductContext';
 
 const ProductsPage = () => {
-  return (
-    <div>
-      <ProductCard />
-    </div>
-  );
+  return <ProductCard />;
 };
 
 export default ProductsPage;
