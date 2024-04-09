@@ -9,7 +9,10 @@ export interface ICartContextType {
 
 export interface IProductContextType {
   product: IProduct;
-
+  productCompare: IProduct[];
+  favouriteProducts: IProduct[];
+  addToFavourite: (product: IProduct) => void;
+  addToCompare: (product: IProduct) => void;
   seeDetails: (product: IProduct) => void;
 }
 

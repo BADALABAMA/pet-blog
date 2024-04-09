@@ -24,7 +24,6 @@ function App() {
         <CartProvider>
           <UserProvider>
             <Header />
-
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="profile" element={<ProfilePage />} />
@@ -33,7 +32,6 @@ function App() {
               <Route path="products" element={<ProductsPage />} />
               <Route path="product/:id/:title" element={<ProductPage />} />
               <Route path="cart" element={<CartPage />} />
-
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
             <Footer />

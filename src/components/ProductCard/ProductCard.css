@@ -74,7 +74,7 @@
 .btn {
   float: right;
   display: inline-block;
-  height: 40px;
+  height: auto;
   width: 176px;
   margin: 5px 40px 10px 10px;
   box-sizing: border-box;

@@ -3,6 +3,7 @@ import Navigation from '../Navigation/Navigation';
 import Logo from '../Logo/Logo';
 
 import './Header.css';
+import { Button } from '../Button/Button';
 
 const Header = ({ productNameFilter, setProductNameFilter }: any) => {
   const handleNameChange = (event: any) => {
@@ -23,9 +24,7 @@ const Header = ({ productNameFilter, setProductNameFilter }: any) => {
               onChange={handleNameChange}
               placeholder="Search by pet name..."
             />
-            <button className="btn btn-outline-success bg-light " type="submit">
-              Search
-            </button>
+            <Button type="submit">Search</Button>
           </form>
         </div>
       </nav>

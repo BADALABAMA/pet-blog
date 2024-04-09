@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 
 import { ProductContext } from '../contexts/ProductContext';
-
-import { Button } from '../components/Button/Button';
 import { CartContext } from '../contexts/CartContext';
+import { Button } from '../components/Button/Button';
+
 import { IProduct } from '../interfaces/IProduct';
 
 const ProductPage = () => {

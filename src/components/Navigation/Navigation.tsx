@@ -22,20 +22,20 @@ export const Navigation = (): ReactElement => {
     <div className="navigation">
       <nav className="nav navbar navbar-light " onClick={onClick}>
         {currentUser.isAuthorized ? (
-          <Button className="m-3">
+          <Button className="nav-btn m-3">
             <Link to="/profile">PROFILE</Link>
           </Button>
         ) : (
-          <Button className="m-3">
+          <Button className="nav-btn m-3">
             <Link to="/">HOME</Link>
           </Button>
         )}
         {!currentUser.isAuthorized ? (
-          <Button className="m-3">
+          <Button className="nav-btn m-3">
             <Link to="/login">LOGIN</Link>
           </Button>
         ) : (
-          <Button>
+          <Button className="nav-btn">
             <Link to="/cart">
               <div>
                 Cart{' '}
@@ -47,10 +47,10 @@ export const Navigation = (): ReactElement => {
           </Button>
         )}
 
-        <Button className="m-3">
+        <Button className="nav-btn m-3">
           <Link to="/category">CATEGORY</Link>
         </Button>
-        <Button className="m-3">
+        <Button className="nav-btn m-3">
           <Link to="/products">PRODUCTS</Link>
         </Button>
       </nav>
