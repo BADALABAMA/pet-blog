@@ -10,7 +10,7 @@ import { getProducts } from '../../utills/constants';
 
 import { Button } from '../Button/Button';
 import { IProduct } from '../../interfaces/IProduct';
-import { Spinner } from 'react-bootstrap';
+import { Spinner } from '../Spinner/Spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
@@ -39,6 +39,7 @@ const ProductCard = (): ReactElement => {
       setIsLoading(false);
     };
     setIsLoading(true);
+
     fetchData();
   }, []);
 
@@ -71,7 +72,7 @@ const ProductCard = (): ReactElement => {
 
   const renderProducts = (products: IProduct[]) => {
     return isLoading ? (
-      <Spinner></Spinner>
+      <Spinner isVisible></Spinner>
     ) : (
       <div className="grid-container">
         {products.map((product: IProduct) => (
@@ -89,6 +90,7 @@ const ProductCard = (): ReactElement => {
                 {product.description && (
                   <h2 className="product-description">
                     {product?.description.split(' ').slice(0, 10).join(' ')}
+                    {product.description.split(' ').length > 10 ? '...' : ''}
                   </h2>
                 )}
 
